@@ -1,0 +1,48 @@
+[2026-07-03 22:02:10.085163] EVENTO: Cliente agregado: Juan Pérez
+[2026-07-03 22:02:10.085505] EVENTO: Cliente agregado: Laura Gómez
+[2026-07-03 22:02:10.085811] ERROR: El nombre debe tener mínimo 3 caracteres.
+[2026-07-03 22:02:10.086106] EVENTO: Servicio agregado: Reserva de sala: Sala Ejecutiva | $80000 por hora
+[2026-07-03 22:02:10.086370] EVENTO: Servicio agregado: Alquiler de equipo: Proyector 4K | $50000 por día
+[2026-07-03 22:02:10.086674] EVENTO: Servicio agregado: Asesoría especializada: Asesoría en Software | $120000 por hora
+[2026-07-03 22:02:10.086942] ERROR: La tarifa base debe ser mayor que cero.
+[2026-07-03 22:02:10.087366] EVENTO: Reserva confirmada para Juan Pérez. Costo: $285600.0
+[2026-07-03 22:02:10.087553] EVENTO: Proceso de reserva finalizado correctamente.
+[2026-07-03 22:02:10.087849] EVENTO: Reserva confirmada para Laura Gómez. Costo: $322500.0
+[2026-07-03 22:02:10.088003] EVENTO: Proceso de reserva finalizado correctamente.
+[2026-07-03 22:02:10.088273] ERROR: La sala solo puede reservarse entre 1 y 8 horas.
+[2026-07-03 22:02:10.088603] ERROR: El servicio Asesoría Premium no está disponible.
+[2026-07-03 22:02:10.088864] EVENTO: Reserva confirmada para Laura Gómez. Costo: $285650.0
+[2026-07-03 22:02:10.089026] EVENTO: Proceso de reserva finalizado correctamente.
+[2026-07-03 22:19:53] Sistema Software FJ iniciado.
+[2026-07-03 22:19:53] Cliente registrado correctamente: Juan Pérez
+[2026-07-03 22:19:53] Error al crear cliente: El correo electrónico no es válido.
+[2026-07-03 22:19:53] Reserva creada para Juan Pérez en servicio Sala Ejecutiva
+[2026-07-03 22:19:53] Reserva confirmada correctamente.
+[2026-07-03 22:19:53] Reserva procesada exitosamente. Costo final: $127.00
+[2026-07-03 22:19:53] Error al crear reserva: No se puede reservar una sala por más de 8 horas.
+[2026-07-03 22:19:53] Error al crear reserva: El servicio no está disponible.
+[2026-07-03 22:19:53] Reserva creada para Juan Pérez en servicio Consultoría en Software
+[2026-07-03 22:19:53] Error del sistema al procesar reserva: La reserva debe estar confirmada antes de procesarse.
+[2026-07-03 22:19:53] Reserva cancelada correctamente.
+[2026-07-03 22:19:53] Excepción encadenada detectada: La duración ingresada no es numérica.
+[2026-07-03 22:45:46] Sistema Software FJ iniciado.
+[2026-07-03 22:45:57] Cliente creado: Carlos Torres
+[2026-07-03 22:45:57] Simulación cliente inválido: El nombre debe tener mínimo 3 caracteres.
+[2026-07-03 22:45:57] Simulación servicio inválido: El precio base debe ser mayor que cero.
+[2026-07-03 22:45:57] Reserva creada: R001
+[2026-07-03 22:45:57] Reserva confirmada: R001
+[2026-07-03 22:45:57] Reserva procesada: R001 | Costo: $160.00
+[2026-07-03 22:45:57] Finalizó intento de procesamiento de reserva R001
+[2026-07-03 22:45:57] Simulación reserva inválida: Una sala no puede reservarse por más de 8 horas.
+[2026-07-03 22:45:57] Simulación servicio no disponible: El servicio no está disponible.
+[2026-07-03 22:45:57] Reserva creada: R002
+[2026-07-03 22:45:57] Error procesando reserva R002: La reserva debe estar confirmada antes de procesarse.
+[2026-07-03 22:45:57] Finalizó intento de procesamiento de reserva R002
+[2026-07-03 22:45:57] Simulación procesar sin confirmar: La reserva debe estar confirmada antes de procesarse.
+[2026-07-03 22:46:54] Cliente creado: Cristhian hernandez
+[2026-07-03 22:46:55] Finalizó intento de registro de cliente.
+[2026-07-03 22:47:33] Finalizó intento de creación de servicio.
+[2026-07-03 22:48:13] Finalizó intento de creación de servicio.
+[2026-07-03 22:48:39] Reserva creada: R003
+[2026-07-03 22:48:40] Finalizó intento de creación de reserva.
+[2026-07-03 22:49:53] Sistema Software FJ iniciado.
