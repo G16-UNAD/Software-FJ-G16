@@ -52,14 +52,12 @@ class Reserva(EntidadBase):
             raise ReservaInvalidaError(f"No se puede confirmar la reserva. Estado actual: '{self._estado}'.")
         
         try:
-            # Llama al método sobrecargado del servicio para calcular el costo.
             self._costo_final = self.servicio.calcular_costo(**opciones_calculo)
             self._estado = "CONFIRMADA"
             logger.info(f"Reserva {self.id} CONFIRMADA con éxito. Costo Final: ${self._costo_final:.2f}")
         except Exception as e:
             mensaje = f"Error en la confirmación de la reserva {self.id} debido a una falla en el cálculo de costos."
             logger.error(f"{mensaje} Origen: {e}")
-            # Encadenamiento de excepciones
             raise ReservaInvalidaError(mensaje) from e
 
     def cancelar(self):
