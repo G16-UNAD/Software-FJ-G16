@@ -1,1 +1,1 @@
-# Paquete de interfaz gráfica de usuario (GUI) con Tkinter
+# GUI package initialization
