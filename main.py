@@ -13,6 +13,7 @@ from src.servicios.sala import ReservaSala
 from src.servicios.equipo import AlquilerEquipos
 from src.servicios.asesoria import AsesoriaEspecializada
 from src.reserva import Reserva
+from src.gui.app import iniciar_app
 
 def ejecutar_simulacion():
     logger.info("======================================================================")
@@ -173,4 +174,4 @@ def ejecutar_simulacion():
     logger.info("======================================================================")
 
 if __name__ == "__main__":
-    ejecutar_simulacion()
+    iniciar_app()
