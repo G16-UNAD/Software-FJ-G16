@@ -19,7 +19,6 @@ class ReservasView(tk.Frame):
         super().__init__(parent, bg=controller.bg_color)
         self.controller = controller
 
-        # Título
         tk.Label(
             self,
             text="Gestión de Reservas",
@@ -28,7 +27,6 @@ class ReservasView(tk.Frame):
             fg=controller.text_dark,
         ).pack(anchor="w", pady=(0, 20))
 
-        # Contenedor principal
         self.main_container = tk.Frame(self, bg=controller.bg_color)
         self.main_container.pack(fill="both", expand=True)
 
@@ -128,7 +126,6 @@ class ReservasView(tk.Frame):
         self.tabla.pack(fill="both", expand=True)
         scroll.config(command=self.tabla.yview)
 
-        # Mensaje instruccional sobre doble clic
         lbl_instruccion = tk.Label(
             frame_tabla,
             text="💡 Nota: Haga doble clic sobre una reserva en la lista para Confirmarla o Cancelarla.",
@@ -138,7 +135,6 @@ class ReservasView(tk.Frame):
         )
         lbl_instruccion.pack(side="bottom", fill="x", pady=(5, 0))
 
-        # Cabeceras
         self.tabla.heading("ID", text="ID")
         self.tabla.heading("Cliente", text="Cliente")
         self.tabla.heading("Servicio", text="Servicio")
@@ -146,7 +142,6 @@ class ReservasView(tk.Frame):
         self.tabla.heading("Estado", text="Estado")
         self.tabla.heading("CostoFinal", text="Costo Final")
 
-        # Anchos
         self.tabla.column("ID", width=80, anchor="center")
         self.tabla.column("Cliente", width=150, anchor="w")
         self.tabla.column("Servicio", width=150, anchor="w")
@@ -154,7 +149,6 @@ class ReservasView(tk.Frame):
         self.tabla.column("Estado", width=100, anchor="center")
         self.tabla.column("CostoFinal", width=120, anchor="center")
 
-        # Acciones de fila (doble click -> opciones)
         self.tabla.bind("<Double-1>", self.mostrar_opciones_reserva)
 
     # ------------------------------------------------------------------
@@ -217,10 +211,9 @@ class ReservasView(tk.Frame):
         item_id = self.tabla.focus()
         if not item_id:
             return
-        reserva_index = int(self.tabla.item(item_id, "text"))  # guardamos índice en "text"
+        reserva_index = int(self.tabla.item(item_id, "text")) 
         reserva = self.controller.base_datos_reservas[reserva_index]
 
-        # Ventana modal con opciones
         top = tk.Toplevel(self)
         top.title("Acciones Reserva")
         top.geometry("300x150")
@@ -257,7 +250,6 @@ class ReservasView(tk.Frame):
     def _accion_reserva(self, reserva, accion, ventana):
         try:
             if accion == "confirmar":
-                # usar valores por defecto (sin descuento/impuesto) para UI simple
                 reserva.confirmar()
                 logger.info(f"Reserva {reserva.id} confirmada desde GUI.")
                 costo_final_str = formatear_moneda_cop(reserva.costo_final)
@@ -277,10 +269,8 @@ class ReservasView(tk.Frame):
     # Actualizar tabla de reservas
     # ------------------------------------------------------------------
     def actualizar_tabla(self):
-        # Refrescar combos primero
         self.actualizar_combos()
 
-        # Limpiar tabla
         for row in self.tabla.get_children():
             self.tabla.delete(row)
 
@@ -294,6 +284,6 @@ class ReservasView(tk.Frame):
             self.tabla.insert(
                 "",
                 "end",
-                text=str(idx),  # guardamos índice para referencia
+                text=str(idx),
                 values=(id_corto, cliente_nombre, servicio_nombre, fecha_str, estado, costo_str),
             )

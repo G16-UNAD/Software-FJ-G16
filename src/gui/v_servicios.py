@@ -198,7 +198,6 @@ class ServiciosView(tk.Frame):
         costo_str = self.ent_costo.get()
 
         try:
-            # Validar costo numérico con soporte para formato colombiano
             try:
                 costo = limpiar_y_parsear_costo(costo_str)
             except ValueError:
@@ -230,12 +229,10 @@ class ServiciosView(tk.Frame):
                 
                 servicio = AsesoriaEspecializada(p1, p2, horas, costo)
 
-            # Registrar servicio en base de datos en memoria del controlador
             self.controller.base_datos_servicios.append(servicio)
             logger.info(f"Servicio {tipo} creado en GUI. ID: {servicio.id}")
             messagebox.showinfo("Servicio Registrado", f"Servicio '{tipo}' registrado con éxito.")
             
-            # Limpiar entradas y actualizar
             self.cambiar_tipo_servicio()
             self.actualizar_tabla()
 
@@ -247,13 +244,10 @@ class ServiciosView(tk.Frame):
             messagebox.showerror("Error Inesperado", f"Ocurrió un error al registrar el servicio: {e}")
 
     def actualizar_tabla(self):
-        # Limpiar
         for row in self.tabla.get_children():
             self.tabla.delete(row)
             
-        # Agregar elementos
         for servicio in self.controller.base_datos_servicios:
-            # Mostramos los últimos 8 caracteres para legibilidad
             id_corto = servicio.id[-8:]
             self.tabla.insert("", "end", values=(
                 id_corto, 

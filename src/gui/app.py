@@ -34,14 +34,12 @@ class ApplicationGUI:
         self.base_datos_servicios = []
         self.base_datos_reservas = []
 
-        # Layout grid
         self.root.grid_columnconfigure(1, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
 
         self.crear_sidebar()
         self.crear_contenedor_principal()
 
-        # Diccionario de vistas y control de la vista actual
         self.vistas = {}
         self.vista_actual = None
         self.vista_actual_nombre = ""

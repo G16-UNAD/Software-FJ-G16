@@ -42,11 +42,6 @@ def limpiar_y_parsear_costo(costo_str):
     return float(s)
 
 def formatear_moneda_cop(valor):
-    """
-    Formatea un float al estilo de moneda colombiano (COP).
-    Usa el punto (.) como separador de miles y la coma (,) para los decimales.
-    Ejemplo: 1250000.5 -> $1.250.000,50
-    """
     if valor is None:
         return "$0,00"
     us_format = f"{valor:,.2f}"

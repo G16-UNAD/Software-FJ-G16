@@ -131,14 +131,12 @@ class ClientesView(tk.Frame):
         self.tabla.pack(fill="both", expand=True)
         scroll.config(command=self.tabla.yview)
 
-        # Encabezados
         self.tabla.heading("ID", text="ID")
         self.tabla.heading("Nombre", text="Nombre")
         self.tabla.heading("Email", text="Email")
         self.tabla.heading("Teléfono", text="Teléfono")
         self.tabla.heading("Identificación", text="Identificación")
 
-        # Anchos de columnas
         self.tabla.column("ID", width=80, anchor="center")
         self.tabla.column("Nombre", width=150, anchor="w")
         self.tabla.column("Email", width=180, anchor="w")
@@ -181,11 +179,9 @@ class ClientesView(tk.Frame):
     # Actualizar tabla de clientes
     # ---------------------------------------------------------------------
     def actualizar_tabla(self):
-        # Limpiar tabla
         for row in self.tabla.get_children():
             self.tabla.delete(row)
 
-        # Insertar datos
         for cliente in self.controller.base_datos_clientes:
             id_corto = cliente.id[-8:]
             self.tabla.insert(

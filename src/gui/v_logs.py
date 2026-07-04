@@ -83,7 +83,6 @@ class LogsView(tk.Frame):
         )
         btn_limpiar.pack(side="left")
 
-        # Área de texto para los logs
         frame_log = tk.LabelFrame(
             self,
             text="Registro de Eventos (app.log)",
@@ -116,7 +115,6 @@ class LogsView(tk.Frame):
         scroll_y.config(command=self.text_logs.yview)
         scroll_x.config(command=self.text_logs.xview)
 
-        # Cargar logs al iniciar la vista
         self.cargar_logs()
 
     # ------------------------------------------------------------------
@@ -138,7 +136,6 @@ class LogsView(tk.Frame):
             self.text_logs.insert(tk.END, f"[ERROR] No se pudo leer app.log: {e}\n")
 
         self.text_logs.config(state="disabled")
-        # Desplazar al final
         self.text_logs.see(tk.END)
 
     # ------------------------------------------------------------------
@@ -148,18 +145,15 @@ class LogsView(tk.Frame):
         """Ejecuta la simulación de consola en un hilo separado para no
         bloquear la interfaz gráfica, y luego refresca los logs."""
         try:
-            # Importamos aquí para evitar dependencias circulares
             from main import ejecutar_simulacion as sim
 
             logger.info("Simulación lanzada desde la interfaz gráfica.")
-            # Ejecutar en hilo aparte para mantener la GUI responsiva
             def _run():
                 try:
                     sim()
                 except Exception as e:
                     logger.error(f"Error durante la simulación: {e}")
                 finally:
-                    # Refrescar los logs en el hilo principal de Tkinter
                     self.after(500, self.cargar_logs)
 
             hilo = threading.Thread(target=_run, daemon=True)
